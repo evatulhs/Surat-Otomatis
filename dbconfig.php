@@ -1,27 +1,18 @@
 
-<?php 
+<?php
 $hostname = "localhost";
 $username = "root";
-$password = "";
+$password = "irul";
 $database = "agenda";
- //sesuaikan dengan password MySQL kalian
+//sesuaikan dengan password MySQL kalian
 //create variable connectin
 $kominfo = mysqli_connect($hostname, $username, $password, $database);
 //checking connection
-if(!$kominfo)
-  {
+if (!$kominfo) {
 
-    echo "Koneksi Gagal! : " . mysqli_connect_error();
+  echo "Koneksi Gagal! : " . mysqli_connect_error();
+} else {
 
-  }else{
+  //echo "Koneksi Berhasil!";
 
-    //echo "Koneksi Berhasil!";
-
-  }
- 
-
-
-
-
-
-
+}

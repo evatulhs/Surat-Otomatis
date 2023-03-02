@@ -8,7 +8,7 @@ function buatSurat(button) {
     let jam = row.cells[5].textContent;
 
     $.ajax({
-        url: "prosessurat.php",
+        url: "proses.php",
         method: "POST",
         data: {
             nomor_agenda: nomor_agenda,
@@ -18,7 +18,8 @@ function buatSurat(button) {
             jam: jam
         },
         success: function(response) {
-            // alert(response)
+            alert(response)
+            window.open('proses.php', '_BLANK')
         },
         error: function(xhr, status, error) {
             console.log(xhr.responseText);
