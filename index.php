@@ -47,7 +47,7 @@ if (mysqli_num_rows($result2) == 1) {
                 <div class="card-body">
                     <div class="form-group mb-2">
                         <label for="">Nomor Surat</label>
-                        <input value="<?= $no_agenda ?>/ /435.106.1/2023" type="text" name="nomorsurat" class="form-control">
+                        <input value="<?= $no_agenda ?>/ /435.106.1/2023" type="text" name="no_agenda" class="form-control">
                     </div>
 
                     <div class="form-group mb-2">
@@ -86,7 +86,7 @@ if (mysqli_num_rows($result2) == 1) {
 
                     <div class="form-group mb-2">
                         <label for="">Agenda</label><br>
-                        <textarea name="untuk" rows="4" cols="83" class="form-control"><?= $nama_acara ?></textarea>
+                        <textarea name="nama_acara" rows="4" cols="83" class="form-control"><?= $nama_acara ?></textarea>
                     </div>
 
                     <div class="form-group mb-2">

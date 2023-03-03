@@ -1,20 +1,26 @@
 <?php
 
 $no_agenda  = $_POST['no_agenda'];
-$tangal     = $_POST['tanggal'];
-$nama       = $_POST['nama'];
-$jabatan    = $_POST['jabatan'];
+$tanggal     = $_POST['tanggal'];
+$nama1       = $_POST['nama1'];
+$jabatan1    = $_POST['jabatan1'];
+$nama2       = $_POST['nama2'];
+$jabatan2    = $_POST['jabatan2'];
+$nama3      = $_POST['nama3'];
+$jabatan3    = $_POST['jabatan3'];
 $nama_acara = $_POST['nama_acara'];
-
-echo ($nama_agenda);
 
 $document = file_get_contents("surat.rtf");
 
-$document = str_replace("#no_agenda", $no_agenda, $document);
+$document = str_replace("#noagenda", $no_agenda, $document);
 $document = str_replace("#tanggal", $tanggal, $document);
-$document = str_replace("#nama", $nama, $document);
-$document = str_replace("#jabatan", $jabatan, $document);
-$document = str_replace("#nama_acara", $nama_acara, $document);
+$document = str_replace("#nama1", $nama1, $document);
+$document = str_replace("#jabatan1", $jabatan1, $document);
+$document = str_replace("#nama2", $nama2, $document);
+$document = str_replace("#jabatan2", $jabatan2, $document);
+$document = str_replace("#nama3", $nama3, $document);
+$document = str_replace("#jabatan3", $jabatan3, $document);
+$document = str_replace("#namaacara", $nama_acara, $document);
 
 header("Content-type: application/msword");
 header("Content-disposition: inline; filename=surat.doc");
