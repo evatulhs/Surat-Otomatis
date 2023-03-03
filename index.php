@@ -5,29 +5,20 @@ include 'dbconfig.php';
 $id = $_GET["id"];
 
 // query data acara berdasarkan id
-$getData = "SELECT * FROM acara WHERE id = $id";
-$result = mysqli_query($kominfo, $getData);
+$getDataAcara = "SELECT * FROM acara WHERE id = $id";
+$resultAcara = mysqli_query($kominfo, $getDataAcara);
 
-if (mysqli_num_rows($result) == 1) {
-    //mengambil data dan menyimpannya dalam variabel
-    $row = mysqli_fetch_assoc($result);
-    $no_agenda = $row["no_agenda"];
-    $tanggal = $row["tanggal"];
-    $nama_acara = $row["nama_acara"];
-} else {
-    echo "Data tidak ditemukan";
-}
+// Mengambil setiap baris hasil query
+$dataAcara = mysqli_fetch_assoc($resultAcara);
 
-$getData2 = "SELECT * FROM user";
-$result2 = mysqli_query($kominfo, $getData2);
+// Mengambil nilai dari kolom dan ditampung ke dalam variable
+$no_agenda = $dataAcara["no_agenda"];
+$tanggal = $dataAcara["tanggal"];
+$nama_acara = $dataAcara["nama_acara"];
 
-if (mysqli_num_rows($result2) == 1) {
-    $baris = mysqli_fetch_assoc($result2);
-    $nama = $baris["nama"];
-    $jabatan = $baris["jabatan"];
-} else {
-    echo "Data tidak ditemukan";
-}
+// query data user
+$getDataUser = "SELECT * FROM user";
+$resultUser = mysqli_query($kominfo, $getDataUser);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,28 +49,68 @@ if (mysqli_num_rows($result2) == 1) {
                     <div class="form-group mb-2">
                         <label for="">Kepada</label>
                         <div class="input-group mb-1">
-                            <input type="text" name="nama1" placeholder="Nama 1" class="form-control">
-                            <select class="form-select">
+                            <select name="nama1" class="form-select">
+                                <option>Pilih Nama</option>
                                 <?php
-                                //menampilkan data dalam elemen option
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    echo "<option value='" . $baris["id"] . "'>" . $baris["jabatan"] . "</option>";
+                                while ($row = mysqli_fetch_array($resultUser)) {
+                                    $nama = $row['nama'];
+                                    echo "<option>$nama</option>";
+                                }
+                                ?>
+                            </select>
+                            <select name="jabatan1" class="form-select">
+                                <option>Pilih Jabatan</option>
+                                <?php
+                                mysqli_data_seek($resultUser, 0);
+                                while ($row = mysqli_fetch_array($resultUser)) {
+                                    $jabatan = $row['jabatan'];
+                                    echo "<option>$jabatan</option>";
                                 }
                                 ?>
                             </select>
                         </div>
                         <div class="input-group mb-1">
-                            <input type="text" name="nama2" placeholder="Nama 2" class="form-control">
-                            <select class="form-select">
-                                <option selected>Pilih Jabatan</option>
-                                <option>Kepala Dinas</option>
+                            <select name="nama2" class="form-select">
+                                <option>Pilih Nama</option>
+                                <?php
+                                mysqli_data_seek($resultUser, 0);
+                                while ($row = mysqli_fetch_array($resultUser)) {
+                                    $nama = $row['nama'];
+                                    echo "<option>$nama</option>";
+                                }
+                                ?>
+                            </select>
+                            <select name="jabatan2" class="form-select">
+                                <option>Pilih Jabatan</option>
+                                <?php
+                                mysqli_data_seek($resultUser, 0);
+                                while ($row = mysqli_fetch_array($resultUser)) {
+                                    $jabatan = $row['jabatan'];
+                                    echo "<option>$jabatan</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="input-group mb-1">
-                            <input type="text" name="nama3" placeholder="Nama 3" class="form-control">
-                            <select class="form-select">
-                                <option selected>Pilih Jabatan</option>
-                                <option>Kepala Dinas</option>
+                            <select name="nama3" class="form-select">
+                                <option>Pilih Nama</option>
+                                <?php
+                                mysqli_data_seek($resultUser, 0);
+                                while ($row = mysqli_fetch_array($resultUser)) {
+                                    $nama = $row['nama'];
+                                    echo "<option>$nama</option>";
+                                }
+                                ?>
+                            </select>
+                            <select name="jabatan3" class="form-select">
+                                <option>Pilih Jabatan</option>
+                                <?php
+                                mysqli_data_seek($resultUser, 0);
+                                while ($row = mysqli_fetch_array($resultUser)) {
+                                    $jabatan = $row['jabatan'];
+                                    echo "<option>$jabatan</option>";
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
