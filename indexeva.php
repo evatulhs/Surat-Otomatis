@@ -54,8 +54,9 @@ include 'dbconfig.php';
                         <td><?php echo $tanggal; ?></td>
                         <td><?php echo $jam; ?></td>
                         <td>
-                            <!-- <button class="btn btn-primary" onclick="window.location.href='buat_surat.php'">Download</button> -->
-                            <button class="btn btn-primary" onclick="buatSurat(this)">Download</button>
+                            <a class="btn btn-primary" href="index.php?id=<?= $id ?>">Edit</a>
+                            <!-- <button class=" btn btn-primary" onclick="window.location.href='index.php'">Edit</button> -->
+                            <!-- <button class="btn btn-primary" onclick="buatSurat(this)">Edit</button> -->
                         </td>
                     </tr>
 
