@@ -1,20 +1,20 @@
 <?php
 
-$nomor_agenda = $_POST['nomor_agenda'];
-$nama_agenda = $_POST['nama_agenda'];
-$dasar      = $_POST['lokasi'];
-$untuk      = $_POST['tanggal'];
-$jam    = $_POST['jam'];
+$no_agenda  = $_POST['no_agenda'];
+$tangal     = $_POST['tanggal'];
+$nama       = $_POST['nama'];
+$jabatan    = $_POST['jabatan'];
+$nama_acara = $_POST['nama_acara'];
 
 echo ($nama_agenda);
 
 $document = file_get_contents("surat.rtf");
 
-$document = str_replace("#nomor_agenda", $nomor_agenda, $document);
-$document = str_replace("#nama_agenda", $nama_agenda, $document);
-$document = str_replace("#lokasi", $lokasi, $document);
-$document = str_replace("#tanggal", date('d-m-Y', strtotime($tanggal)), $document);
-$document = str_replace("#jam", $jam, $document);
+$document = str_replace("#no_agenda", $no_agenda, $document);
+$document = str_replace("#tanggal", $tanggal, $document);
+$document = str_replace("#nama", $nama, $document);
+$document = str_replace("#jabatan", $jabatan, $document);
+$document = str_replace("#nama_acara", $nama_acara, $document);
 
 header("Content-type: application/msword");
 header("Content-disposition: inline; filename=surat.doc");
