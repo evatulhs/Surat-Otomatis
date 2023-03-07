@@ -1,10 +1,14 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nomor_agenda = $_POST['nomor_agenda'];
-    $nama_agenda = $_POST['nama_agenda'];
-    $lokasi = $_POST['lokasi'];
-    $tanggal = $_POST['tanggal'];
-    $jam = $_POST['jam'];
+    $no_agenda  = $_POST['no_agenda'];
+    $tanggal     = $_POST['tanggal'];
+    $nama1       = $_POST['nama1'];
+    $jabatan1    = $_POST['jabatan1'];
+    $nama2       = $_POST['nama2'];
+    $jabatan2    = $_POST['jabatan2'];
+    $nama3      = $_POST['nama3'];
+    $jabatan3    = $_POST['jabatan3'];
+    $nama_acara = $_POST['nama_acara'];
 }
 ?>
 
@@ -49,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </br>
 
     <P align="center"><u>Surat Tugas</u></P>
-    <p align="center">Nomor : <?= $nomor_agenda ?></p>
+    <p align="center">Nomor : <?= $no_agenda ?></p>
 
     <h4>dasar : <?= $nama_agenda ?><h4>
             </br>
@@ -60,27 +64,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <h4> kepada :</h2>
                 <pre align="center">
-1.  Nama        : SUHARSIH MULYANA
+1.  Nama        : <?= $nama1 ?>
 
          NIP         : 19680825 199303 2 009
 
           Pangkat/Gol : Penata Tingkat I/III-d
 
-              Jabatan     : Pranata Komputer Ahli Muda
+              Jabatan     : <?= $jabatan1 ?>
 
-        2.  NAMA        : NUR KHOLIS AUTHON, S.Kom
+        2.  NAMA        : <?= $nama2 ?>
 
-Jabatan     : Staf        
+Jabatan     : <?= $jabatan2 ?>      
 
-     3.  Nama        : CATUR WIJADMUKO,S.Kom
+     3.  Nama        : <?= $nama3 ?>
 
-          Jabatan     : Staf                  
+          Jabatan     : <?= $jabatan3 ?>                 
 
 
 </pre>
 
 
-                <h4> Untuk :</h2>
+                <h4> Untuk : <?= $nama_acara ?></h2>
                     <pre>
         Demikian surat tugas ini dibuat untuk dilaksanakan dengan sebaik-baiknya 
 dan penuh tanggung jawab.
@@ -88,7 +92,7 @@ dan penuh tanggung jawab.
 
 
                     <p align="right"> Dikeluarkan : SUMENEP </b></p>
-                    <p align="right">Pada Tanggal : </b></p>
+                    <p align="right">Pada Tanggal : <?= $tanggal ?></b></p>
 
 
                     </b></p>

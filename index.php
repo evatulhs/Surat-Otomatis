@@ -4,21 +4,27 @@ include 'dbconfig.php';
 // mengambil data id dari URL
 $id = $_GET["id"];
 
-// query data acara berdasarkan id
-$getDataAcara = "SELECT * FROM acara WHERE id = $id";
-$resultAcara = mysqli_query($kominfo, $getDataAcara);
+if ($id) {
 
-// Mengambil setiap baris hasil query
-$dataAcara = mysqli_fetch_assoc($resultAcara);
+    // query data acara berdasarkan id
+    $getDataAcara = "SELECT * FROM acara WHERE id = $id";
+    $resultAcara = mysqli_query($kominfo, $getDataAcara);
 
-// Mengambil baris dari kolom dan ditampung ke dalam variable
-$no_agenda = $dataAcara["no_agenda"];
-$tanggal = $dataAcara["tanggal"];
-$nama_acara = $dataAcara["nama_acara"];
+    // Mengambil setiap baris hasil query
+    $dataAcara = mysqli_fetch_assoc($resultAcara);
 
-// query data user
-$getDataUser = "SELECT * FROM user";
-$resultUser = mysqli_query($kominfo, $getDataUser);
+    // Mengambil baris dari kolom dan ditampung ke dalam variable
+    $no_agenda = $dataAcara["no_agenda"];
+    $tanggal = $dataAcara["tanggal"];
+    $nama_acara = $dataAcara["nama_acara"];
+
+    // query data user
+    $getDataUser = "SELECT * FROM user";
+    $resultUser = mysqli_query($kominfo, $getDataUser);
+} else {
+    $pesan = 'Data tidak ditemukan';
+    echo "<script type='text/javascript'>alert('$pesan');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +40,7 @@ $resultUser = mysqli_query($kominfo, $getDataUser);
 <body>
     <div class="container col-lg-5">
         <div class="card mt-4">
-            <form action="proses.php" method="post">
+            <form action="prosessurat.php" method="post">
                 <div class="card-body">
                     <div class="form-group mb-4">
                         <label class="mb-1">Nomor Surat</label>
@@ -121,7 +127,7 @@ $resultUser = mysqli_query($kominfo, $getDataUser);
                     </div>
 
                     <div class="form-group mb-2">
-                        <button type="submit" class="btn btn-primary">Download</button>
+                        <button type="submit" class="btn btn-primary">Lihat Surat</button>
                     </div>
                 </div>
             </form>
