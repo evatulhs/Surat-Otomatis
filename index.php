@@ -11,7 +11,7 @@ $resultAcara = mysqli_query($kominfo, $getDataAcara);
 // Mengambil setiap baris hasil query
 $dataAcara = mysqli_fetch_assoc($resultAcara);
 
-// Mengambil nilai dari kolom dan ditampung ke dalam variable
+// Mengambil baris dari kolom dan ditampung ke dalam variable
 $no_agenda = $dataAcara["no_agenda"];
 $tanggal = $dataAcara["tanggal"];
 $nama_acara = $dataAcara["nama_acara"];
@@ -36,20 +36,20 @@ $resultUser = mysqli_query($kominfo, $getDataUser);
         <div class="card mt-4">
             <form action="proses.php" method="post">
                 <div class="card-body">
-                    <div class="form-group mb-2">
-                        <label for="">Nomor Surat</label>
+                    <div class="form-group mb-4">
+                        <label class="mb-1">Nomor Surat</label>
                         <input value="<?= $no_agenda ?>/ /435.106.1/2023" type="text" name="no_agenda" class="form-control">
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="">Tanggal</label>
+                    <div class="form-group mb-4">
+                        <label class="mb-1">Tanggal</label>
                         <input value="<?= $tanggal ?>" type="text" name="tanggal" class="form-control">
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="">Kepada</label>
-                        <div class="input-group mb-1">
-                            <select name="nama1" class="form-select">
+                    <div class="mb-4">
+                        <label class="mb-1">Kepada</label>
+                        <div class="input-group mb-2">
+                            <select name="nama1" class="form-select me-2">
                                 <option>Pilih Nama</option>
                                 <?php
                                 while ($row = mysqli_fetch_array($resultUser)) {
@@ -69,8 +69,8 @@ $resultUser = mysqli_query($kominfo, $getDataUser);
                                 ?>
                             </select>
                         </div>
-                        <div class="input-group mb-1">
-                            <select name="nama2" class="form-select">
+                        <div class="input-group mb-2">
+                            <select name="nama2" class="form-select me-2">
                                 <option>Pilih Nama</option>
                                 <?php
                                 mysqli_data_seek($resultUser, 0);
@@ -91,8 +91,8 @@ $resultUser = mysqli_query($kominfo, $getDataUser);
                                 ?>
                             </select>
                         </div>
-                        <div class="input-group mb-1">
-                            <select name="nama3" class="form-select">
+                        <div class="input-group">
+                            <select name="nama3" class="form-select me-2">
                                 <option>Pilih Nama</option>
                                 <?php
                                 mysqli_data_seek($resultUser, 0);
@@ -115,8 +115,8 @@ $resultUser = mysqli_query($kominfo, $getDataUser);
                         </div>
                     </div>
 
-                    <div class="form-group mb-2">
-                        <label for="">Agenda</label><br>
+                    <div class="form-group mb-4">
+                        <label class="mb-1">Agenda</label><br>
                         <textarea name="nama_acara" rows="4" cols="83" class="form-control"><?= $nama_acara ?></textarea>
                     </div>
 
